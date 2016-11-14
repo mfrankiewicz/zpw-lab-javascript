@@ -1,0 +1,55 @@
+<div class="many">
+    <div class="title">
+        <h1>{{sectionTitle}}</h1>
+        <h3>tu będziemy wstawiać elementy galerii oparte o AngularJS</h3>
+    </div>
+    <div class="row mt-20 mb-20">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-3">
+                    <strong class="line-height-2em">Szukaj:</strong>
+                </div>
+                <div class="col-md-9">
+                    <input ng-model="query" type="text" class="form-control">
+                </div>
+            </div>
+            <p ng-if="query.length > 0" class="mt-20">
+                Wyniki wyszukiwania dla frazy <strong>{{ query }}</strong>
+            </p>
+            <p ng-if="query.length == 0 || query == undefined" class="mt-20">
+                Ilość elementów: <strong>{{galleries.length}}</strong>
+            </p>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-3">
+                    <strong class="line-height-2em">Sortowanie:</strong>
+                </div>
+                <div class="col-md-9">
+                    <select ng-model="order" ng-options="sort as sort.label for sort in sortList" class="form-control">
+                    </select>
+                </div>
+            </div>
+            <p ng-if="order" class="mt-20">Galerie ułożone: <strong>{{order.label}}</strong></p>
+        </div>
+    </div>
+    <div class="items">
+        <div class="row">
+            <div class="col-xs-4 gallery-listing item" ng-repeat="gallery in galleries | filter:query | orderBy: order.value">
+                <div class="thumbnail">
+                    <a href="#/galleries/{{gallery.id}}">
+                        <img class="img-responsive" src="{{gallery.thumbnailUrl}}" />
+                    </a>
+                </div>
+                <div class="title">
+                    <a href="#/galleries/{{gallery.id}}">
+                        {{gallery.title}}
+                    </a>
+                </div>
+                <div class="caption">
+                    <strong>Kiedy:</strong> {{gallery.when | date:'MMMM y'}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

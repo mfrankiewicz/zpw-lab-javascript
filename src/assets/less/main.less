@@ -1,0 +1,82 @@
+@import 'helpers.less';
+@import 'animations.less';
+
+body {
+    width: 100%;
+    min-height: 700px;
+    background: rgb(236, 229, 221);
+}
+
+header {
+    padding: 12.5px 0;
+    background: rgb(53, 68, 88);
+    color: #FFF;
+    height: 75px;
+    margin-bottom: 2em;
+}
+
+main {
+
+}
+
+nav {
+
+}
+
+section.galleries .many {
+    .items {
+        .row {
+            &:not(:last-of-type) {
+                margin-bottom: 1.5em;
+            }
+        }
+        .item {
+            box-sizing: border-box;
+            margin-bottom: 1.5em;
+            .thumbnail {
+                margin-bottom: 1em;
+                img {
+                    width: 100%;
+                }
+            }
+            .title {
+                font-size: 1em;
+            }
+            .caption {
+                font-size: .75em;
+            }
+        }
+    }
+}
+section.galleries .single {
+    ul.tags {
+        padding: 0;
+        li {
+            float: left;
+            list-style-type: none;
+            padding: 5px 15px;
+            background-color: #006eb7;
+            color: #fff;
+            border-radius: 25px;
+            font-size: 10px;
+            font-weight: bold;
+            &:not(:first-of-type) {
+                margin-left: 2em;
+            }
+        }
+    }
+    ul.photos {
+        padding: 0;
+        li {
+            cursor: pointer;
+            float: left;
+            list-style-type: none;
+            &:not(:first-of-type) {
+                margin-left: 2em;
+            }
+            img {
+                width: 150px;
+            }
+        }
+    }
+}

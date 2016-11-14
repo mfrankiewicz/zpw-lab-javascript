@@ -1,0 +1,27 @@
+<div class="single">
+    <div class="title">
+        <h4>{{gallery.title}}</h4>
+        <h5>
+            {{gallery.when | date:'EEEE' | dayOfTheWeek}},
+            {{gallery.when | date:'d'}}
+            {{gallery.when | date:'M' | monthName}}
+            {{gallery.when | date:'yyyy'}}
+        </h5>
+        <p>{{gallery.description}}</p>
+    </div>
+    <div>
+        <ul class="tags">
+            <li ng-repeat="tag in gallery.tags">{{tag}}</li>
+        </ul>
+    </div>
+    <div class="clearfix"></div>
+    <div class="main-photo mt-20 mb-20">
+        <img class="pull-auto animate-show" src="{{mainPhotoUrl}}" image-source-change>
+    </div>
+    <ul class="photos">
+        <li ng-repeat="photo in gallery.photos">
+            <img ng-click="setPhoto(photo)" class="img-thumbnail" src="{{photo.thumbnailUrl}}" />
+        </li>
+    </ul>
+    <div class="clearfix"></div>
+</div>

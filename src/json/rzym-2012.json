@@ -1,0 +1,39 @@
+{
+    "id": "rzym-2012",
+    "title":"Rzym",
+    "when":"2012-08-04",
+    "description": "Testowy opis",
+    "tags": [
+        "trip",
+        "gallery",
+        "photos",
+        "world"
+    ],
+    "photos": [
+        {
+            "photoUrl":"http://placehold.it/400x200/ff0/000000",
+            "thumbnailUrl":"http://placehold.it/200x100/ff0/000000",
+            "photoTitle":"Tytuł zdjęcia"
+        },
+        {
+            "photoUrl":"http://placehold.it/400x200/fbc/000000",
+            "thumbnailUrl":"http://placehold.it/200x100/fbc/000000",
+            "photoTitle":"Tytuł zdjęcia"
+        },
+        {
+            "photoUrl":"http://placehold.it/400x200/aabb44/000000",
+            "thumbnailUrl":"http://placehold.it/200x100/aabb44/000000",
+            "photoTitle":"Tytuł zdjęcia"
+        },
+        {
+            "photoUrl":"http://placehold.it/400x200/fbbc/000000",
+            "thumbnailUrl":"http://placehold.it/200x100/fbbc/000000",
+            "photoTitle":"Tytuł zdjęcia"
+        },
+        {
+            "photoUrl":"http://placehold.it/400x200/ffffff/000000",
+            "thumbnailUrl":"http://placehold.it/200x100/ffffff/000000",
+            "photoTitle":"Tytuł zdjęcia"
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+version: '2'
+services:
+    web-dev:
+        container_name: web-dev
+        image: michaloo/web-dev
+        volumes:
+            - .:/var/www
+        ports:
+            - "80:80"

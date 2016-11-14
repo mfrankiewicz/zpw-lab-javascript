@@ -1,0 +1,79 @@
+
+@keyframes fade-in {from { opacity: 0; }
+    to { opacity: 1; }
+}
+-moz-keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+-webkit-keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+-moz-keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+-webkit-keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.view-container {
+    position: relative;
+}
+.view-frame.ng-enter, .view-frame.ng-leave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.view-frame.ng-enter {
+    -webkit-animation: 0.5s fade-in;
+    -moz-animation: 0.5s fade-in;
+    -o-animation: 0.5s fade-in;
+    animation: 0.5s fade-in;
+    z-index: 100;
+}
+.view-frame.ng-leave {
+    -webkit-animation: 0.5s fade-out;
+    -moz-animation: 0.5s fade-out;
+    -o-animation: 0.5s fade-out;
+    animation: 0.5s fade-out;
+    z-index:99;
+}
+
+.gallery-listing.ng-enter,
+.gallery-listing.ng-leave,
+.gallery-listing.ng-move {
+    transition: 1s linear all;
+    overflow: hidden;
+}
+.gallery-listing.ng-enter,
+.gallery-listing.ng-move,
+.gallery-listing.ng-leave.ng-leave-active
+{
+    opacity: 0;
+}
+.gallery-listing.ng-move.ng-move-active,
+.gallery-listing.ng-enter.ng-enter-active,
+.gallery-listing.ng-leave{
+    opacity: 1;
+}
+
+.animate-show.ng-hide-add, .animate-show.ng-hide-remove {
+    transition: all linear 0.5s;
+    display: block !important;
+}
+
+.animate-show.ng-hide-add.ng-hide-add-active, .animate-show.ng-hide-remove {
+    opacity: 0;
+}
+
+.animate-show.ng-hide-add, .animate-show.ng-hide-remove.ng-hide-remove-active {
+    opacity: 1;
+}
