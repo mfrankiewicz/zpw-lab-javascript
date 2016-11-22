@@ -1,0 +1,9 @@
+Options +FollowSymLinks -MultiViews -Indexes
+
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteCond %{HTTP_HOST} (.*)\.zpw\.loc
+RewriteCond $1 !^lab
+RewriteRule (.*) /%1/$1 [L]

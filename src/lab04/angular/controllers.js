@@ -28,6 +28,7 @@ appControllers.controller('GalleryDetailCtrl', function($scope, $http, $routePar
 
 appControllers.controller('GalleryListCtrl', function($scope, $http, Gallery) {
 
+    $scope.assetsVersion = Math.random();
     $scope.locale = "pl-pl";
     $scope.sectionTitle = "Galeria podróży";
     $scope.galleries = Gallery.query();
