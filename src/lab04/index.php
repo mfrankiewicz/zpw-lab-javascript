@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" href="/global/css/bootstrap.min.css">
-        <link rel="stylesheet/less" href="/assets/less/main.less?v={{ assetsVersion }}">
+        <link rel="stylesheet/less" href="/assets/less/main.less?v=<?= md5(uniqid()) ?>">
 
         <script type="text/javascript" src="/global/js/less.js"></script>
         <script src="/global/js/jquery.min.js"></script>

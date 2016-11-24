@@ -1,3 +1,5 @@
-var shoppingListApp = angular.module('shoppingListApp', [
-    'appControllers'
+var purchaseListApp = angular.module('purchaseListApp', [
+    'appControllers',
+    'appServices',
+    'appFilters'
 ]);
