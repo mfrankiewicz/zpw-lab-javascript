@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" ng-controller="mainCtrl" ng-app="app">
+<html lang="en" ng-controller="mainCtrl" ng-app="mainApp">
     <head>
         <meta charset="utf-8">
-        <title>Lab 5</title>
+        <title>Zaawansowane Programowanie Webowe - laboratoria</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" href="/global/css/bootstrap.min.css">
@@ -17,28 +17,21 @@
         <script src="/global/js/angular-animate.min.js"></script>
 
         <script src="/angular/controllers.js"></script>
-        <script src="/angular/directives.js"></script>
-        <script src="/angular/services.js"></script>
-        <script src="/angular/filters.js"></script>
     </head>
 
     <body>
         <header>
-            <div class="container-fluid">
-                <div class="col-md-6 text-left">
-                    <a href="/#/">
-                        lab05
-                    </a>
-                </div>
-                <div class="col-md-6 text-right">
-                    <a href="http://zpw.loc/">
-                        lista laboratoriów
-                    </a>
-                </div>
-            </div>
+            <a href="/">
+                Zaawansowane Programowanie Webowe
+            </a>
         </header>
         <main>
-            <div class="view-frame" ng-view>
+            <div class="container">
+                <div class="row">
+                    <div ng-repeat="laboratory in laboratories" class="col-md-12 text-center">
+                        <a ng-href="{{ laboratory.url }}"><h3>{{ laboratory.description }}</h3></a>
+                    </div>
+                </div>
             </div>
         </main>
         <script src="/angular/app.js"></script>
