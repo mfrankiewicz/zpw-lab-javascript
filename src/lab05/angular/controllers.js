@@ -22,7 +22,7 @@ appControllers.controller('mixedTasksCtrl', function($scope) {
     };
 });
 
-appControllers.controller('shopCtrl', function($scope) {
+appControllers.controller('shopCtrl', function($scope, $filter, cartService) {
 
     $scope.categories = [
         {
@@ -123,10 +123,24 @@ appControllers.controller('shopCtrl', function($scope) {
 
         return count;
     };
+
+    $scope.addToCart = function(productId) {
+        var products = $filter('filter')($scope.products, {id: productId}, true);
+
+        if (products.length) {
+            cartService.data.push({
+                id: products[0].id,
+                name: products[0].name,
+                price: products[0].price,
+                category: $scope.getCategoryName(products[0].categoryId)
+            });
+        }
+    }
 });
 
 appControllers.controller('cartCtrl', function($scope, cartService) {
 
+    $scope.cart = cartService.data;
 
 
 
