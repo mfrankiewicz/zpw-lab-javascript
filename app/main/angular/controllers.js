@@ -3,14 +3,6 @@ var appControllers = angular.module('appControllers',[]);
 appControllers.controller('mainCtrl', function($scope, $http) {
     $scope.laboratories = [
         {
-            description: 'Laboratorium nr 1',
-            url: 'http://lab01.zpw.loc/'
-        },
-        {
-            description: 'Laboratorium nr 2',
-            url: 'http://lab02.zpw.loc/'
-        },
-        {
             description: 'Laboratorium nr 3',
             url: 'http://lab03.zpw.loc/'
         },
