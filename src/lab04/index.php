@@ -28,9 +28,18 @@
 
     <body>
         <header>
-            <a href="/">
-                header
-            </a>
+            <div class="container-fluid">
+                <div class="col-md-6 text-left">
+                    <a href="/#/">
+                        lab04
+                    </a>
+                </div>
+                <div class="col-md-6 text-right">
+                    <a href="http://zpw.loc/">
+                        lista laboratoriów
+                    </a>
+                </div>
+            </div>
         </header>
         <nav class="col-md-2 col-xs-4">
             <ul>

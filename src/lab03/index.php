@@ -23,9 +23,18 @@
 
     <body>
         <header>
-            <a href="/">
-                lab03
-            </a>
+            <div class="container-fluid">
+                <div class="col-md-6 text-left">
+                    <a href="/#/">
+                        lab03
+                    </a>
+                </div>
+                <div class="col-md-6 text-right">
+                    <a href="http://zpw.loc/">
+                        lista laboratoriów
+                    </a>
+                </div>
+            </div>
         </header>
         <main>
             <section ng-controller="purchaseFormCtrl" class="purchase-form mb-50">
