@@ -59,12 +59,23 @@
                 </h5>
                 <h5>Wszystkie produkty: {{ purchases.length }}</h5>
                 <div class="row mt-50">
+                    <div class="col-md-12">Zakres dat</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input ng-model="dateFilter.fromDate" type="date" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <input ng-model="dateFilter.toDate" type="date" class="form-control">
+                    </div>
+                </div>
+                <div class="row mt-50">
                     <div class="col-md-2">Archiwum</div>
                     <div class="col-md-3">Imię</div>
                     <div class="col-md-4">Produkt</div>
                     <div class="col-md-3">Data</div>
                 </div>
-                <div class="row" ng-repeat="purchase in purchases | startFrom:currentPage*pageSize | limitTo:pageSize">
+                <div class="row" ng-repeat="purchase in purchases | startFrom:currentPage*pageSize | limitTo:pageSize | dateRangeFilter:dateFilter.fromDate:dateFilter.toDate">
                     <div class="col-md-2" ng-if="purchase.archive">
                         <input type="checkbox" name="archive" checked="checked" ng-click="unarchive(purchase.id)">
                     </div>
