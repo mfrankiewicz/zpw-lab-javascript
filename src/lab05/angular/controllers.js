@@ -83,9 +83,18 @@ appControllers.controller('shopCtrl', function($scope) {
     $scope.currentPage = 0;
     $scope.pageSize = 3;
     $scope.selectedCategory = $scope.categories[0];
+    $scope.product = { category: $scope.categories[0] };
+
+    $scope.addProduct = function(){
+        $scope.products.push({
+            id: $scope.products.length + 1,
+            name: $scope.product.name,
+            price: $scope.product.price,
+            categoryId: $scope.product.category.id
+        });
+    }
 
     $scope.numberOfPages = function(){
-        console.log($scope.getProductCountByCategoryId($scope.selectedCategory.id));
         return Math.ceil($scope.getProductCountByCategoryId($scope.selectedCategory.id)/$scope.pageSize);
     }
 
