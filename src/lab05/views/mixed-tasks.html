@@ -1,0 +1,68 @@
+<section ng-controller="mixedTasksCtrl" class="mixed-tasks">
+    <div class="container text-center mb-50">
+        <div class="row text-bold">
+            <div class="col-md-6">
+                Obecny dzień tygodnia
+            </div>
+            <div class="col-md-6">
+                Dzień tygodnia za 2 dni
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                {{ currentDate | date:'EEEE' }}
+            </div>
+            <div class="col-md-6">
+                {{ dateTwoDays | date:'EEEE' }}
+            </div>
+        </div>
+    </div>
+    <div class="container text-center mb-50">
+        <div class="row text-bold">
+            <div class="col-md-6">
+                Tekst do odwrócenia
+            </div>
+            <div class="col-md-6">
+                Wynik
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <input class="form-control" type="text" placeholder="wpisz jakiś tekst" ng-model="stringToReverse" />
+            </div>
+            <div class="col-md-6">
+                {{ reverseString(stringToReverse) }}
+            </div>
+        </div>
+    </div>
+    <div class="container text-center mb-50">
+        <div class="row">
+            <div class="col-md-6 text-bold">
+                Element y-widget
+            </div>
+            <div class="col-md-6">
+                <y-widget>
+            </div>
+        </div>
+    </div>
+    <div class="container text-center mb-50">
+        <div class="row">
+            <div class="col-md-6 text-bold">
+                Element z atrybutem my-widget
+            </div>
+            <div class="col-md-6">
+                <span my-widget="tekst ustawiony przy pomocy parametru my-widget"></span>
+            </div>
+        </div>
+    </div>
+    <div class="container text-center mb-50">
+        <div class="row">
+            <div class="col-md-6 text-bold">
+                Powielona zawartość elementu z ng-repeats
+            </div>
+            <div class="col-md-6" ng-repeats="6">
+                <p>testowy paragraf do powielenia</p>
+            </div>
+        </div>
+    </div>
+</section>
