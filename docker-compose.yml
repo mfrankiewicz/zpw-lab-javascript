@@ -2,7 +2,7 @@ version: '2'
 services:
     web-dev:
         container_name: web-dev
-        image: michaloo/web-dev
+        image: mfrankiewicz/web-dev
         volumes:
             - .:/var/www
         ports:
