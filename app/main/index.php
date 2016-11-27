@@ -29,7 +29,7 @@
             <div class="container">
                 <div class="row">
                     <div ng-repeat="laboratory in laboratories" class="col-md-12 text-center">
-                        <a ng-href="{{ laboratory.url }}"><h3>{{ laboratory.description }}</h3></a>
+                        <h3><a ng-href="{{ laboratory.url }}">{{ laboratory.description }}</a></h3>
                     </div>
                 </div>
             </div>
