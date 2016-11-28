@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-controller="mainCtrl" ng-app="app">
+<html lang="en" ng-controller="mainCtrl" ng-app="adminApp">
     <head>
         <meta charset="utf-8">
         <title>Lab 6</title>
@@ -16,9 +16,8 @@
         <script src="/global/js/angular-resource.min.js"></script>
         <script src="/global/js/angular-animate.min.js"></script>
 
-        <script src="/angular/controllers.js"></script>
-        <script src="/angular/services.js"></script>
-        <script src="/angular/filters.js"></script>
+        <script src="/administrator/angular/controllers.js"></script>
+
     </head>
 
     <body>
@@ -40,6 +39,6 @@
             <div class="view-frame" ng-view>
             </div>
         </main>
-        <script src="/angular/app.js"></script>
+        <script src="/administrator/angular/app.js"></script>
     </body>
 </html>

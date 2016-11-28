@@ -1,0 +1,42 @@
+<section class="add-order">
+    <div class="container">
+        <form ng-submit="addOrder()">
+            <div class="row">
+                <div class="col-md-12 alert alert-success mt-20" ng-if="success">
+                    Zamówienie zostało złożone.
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 form-group" ng-if="errorMessages.name == undefined">
+                    <label>Imię i nazwisko</label>
+                    <input ng-model="order.name" type="text" class="form-control">
+                </div>
+                <div class="col-md-12 form-group has-error" ng-if="errorMessages.name != undefined">
+                    <label>Imię i nazwisko</label>
+                    <input ng-model="order.name" type="text" class="form-control">
+                    <div class="alert alert-danger mt-20">
+                        Niepoprawne dane.
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 form-group" ng-if="errorMessages.street == undefined">
+                    <label>Nazwa ulicy</label>
+                    <input ng-model="order.street" type="text" class="form-control">
+                </div>
+                <div class="col-md-12 form-group has-error" ng-if="errorMessages.street != undefined">
+                    <label>Nazwa ulicy</label>
+                    <input ng-model="order.street" type="text" class="form-control">
+                    <div class="alert alert-danger mt-20">
+                        Niepoprawna nazwa ulicy.
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <button type="submit" class="btn btn-default">Dokończ zamówienie</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

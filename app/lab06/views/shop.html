@@ -1,32 +1,4 @@
 <section class="shop">
-    <div class="container">
-        <form ng-submit="addProduct()">
-            <div class="row">
-                <div class="col-md-12 form-group">
-                    <label>Nazwa produktu</label>
-                    <input ng-model="product.name" type="text" class="form-control">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 form-group">
-                    <label>Cena</label>
-                    <input ng-model="product.price" type="text" class="form-control">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 form-group">
-                    <label>Kategoria</label>
-                    <select ng-model="product.category" ng-options="category as category.name for category in categories track by category.id" class="form-control">
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 form-group">
-                    <button type="submit" class="btn btn-default">Dodaj pozycję</button>
-                </div>
-            </div>
-        </form>
-    </div>
     <div class="container text-center mb-50">
         <div class="row mb-20">
             <div class="col-md-3 text-bold line-height-2em">

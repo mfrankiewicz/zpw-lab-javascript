@@ -1,30 +1,44 @@
-<section ng-controller="cartCtrl" class="cart">
+<section class="cart">
     <div class="container text-center">
+        <div class="row text-bold mb-20">
+            <div class="col-md-6 text-left">
+                <a href="#/shop"><button class="btn btn-default">Kontynuuj zakupy</button></a>
+            </div>
+            <div class="col-md-6 text-right">
+                <a href="#/order/add"><button class="btn btn-default">Złóż zamówienie</button></a>
+            </div>
+        </div>
         <div class="row text-bold mb-20">
             <div class="col-md-12">
                 <h3>Produkty w koszyku</h3>
             </div>
         </div>
         <div class="row text-bold mb-20">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 Nazwa produktu
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 Cena
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 Kategoria
+            </div>
+            <div class="col-md-3">
+                &nbsp;
             </div>
         </div>
         <div class="row" ng-repeat="cartItem in cart">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 {{ cartItem.name }}
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 {{ cartItem.price }} zł
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 {{ cartItem.category }}
+            </div>
+            <div class="col-md-3 cursor-pointer">
+                <a ng-click="removeFromCart(cartItem.id)">usuń z koszyka</a>
             </div>
         </div>
     </div>
