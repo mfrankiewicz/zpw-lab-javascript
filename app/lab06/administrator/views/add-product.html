@@ -1,0 +1,82 @@
+<section class="add-product">
+    <div class="container">
+        <form ng-submit="addProduct()">
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <label>Nazwa produktu</label>
+                    <input ng-model="product.name" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <label>Cena</label>
+                    <input ng-model="product.price" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <label>Kategoria</label>
+                    <select ng-model="product.category" ng-options="category as category.name for category in categories track by category.id" class="form-control">
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <button type="submit" class="btn btn-default">Dodaj pozycję</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="container">
+        <div class="row text-bold mb-20">
+            <div class="col-md-3">
+                Nazwa produktu
+            </div>
+            <div class="col-md-3">
+                Cena
+            </div>
+            <div class="col-md-3">
+                Kategoria
+            </div>
+            <div class="col-md-3">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row" ng-repeat="product in products">
+            <div class="col-md-3" ng-if="product.editing == undefined || !product.editing">
+                {{ product.name }}
+            </div>
+            <div class="col-md-3" ng-if="product.editing == undefined || !product.editing">
+                {{ product.price }} zł
+            </div>
+            <div class="col-md-3" ng-if="product.editing == undefined || !product.editing">
+                {{ getCategoryName(product.categoryId) }}
+            </div>
+            <div class="col-md-3" ng-if="product.editing">
+                <input ng-model="productEditing.name" type="text" class="form-control">
+            </div>
+            <div class="col-md-3" ng-if="product.editing">
+                <input ng-model="productEditing.price" type="text" class="form-control">
+            </div>
+            <div class="col-md-3" ng-if="product.editing">
+                <select ng-model="productEditing.category" ng-options="category as category.name for category in categories track by category.id" class="form-control">
+                </select>
+            </div>
+            <div class="col-md-3">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 form-group" ng-if="product.editing == undefined || !product.editing">
+                            <button type="submit" class="btn btn-primary" ng-click="editProduct(product.id)">Edytuj</button>
+                        </div>
+                        <div class="col-md-6 form-group" ng-if="product.editing">
+                            <button type="submit" class="btn btn-success" ng-click="saveProduct(product.id)">Zapisz</button>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <button type="submit" class="btn btn-danger" ng-click="removeProduct(product.id)">Usuń</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

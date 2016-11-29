@@ -17,6 +17,7 @@
         <script src="/global/js/angular-animate.min.js"></script>
 
         <script src="/administrator/angular/controllers.js"></script>
+        <script src="/administrator/angular/services.js"></script>
 
     </head>
 

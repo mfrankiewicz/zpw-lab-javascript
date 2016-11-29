@@ -40,6 +40,15 @@
             <div class="view-frame" ng-view>
             </div>
         </main>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12-md text-center">
+                        <a href="/administrator">panel administracyjny</a>
+                    </div>
+                </div>
+            </div
+        </footer>
         <script src="/angular/app.js"></script>
     </body>
 </html>
