@@ -14,7 +14,7 @@ services:
         container_name: deployd
         image: mfrankiewicz/deployd
         networks:
-            zpw_api_net:
+            zpw_deployd_net:
                 ipv4_address: 172.16.241.20
         links:
             - mongodb
@@ -29,7 +29,7 @@ services:
         container_name: mongodb
         image: library/mongo
         networks:
-            zpw_api_net:
+            zpw_deployd_net:
                 ipv4_address: 172.16.241.30
         ports:
             - "172.16.241.1:27017:27017"
@@ -43,10 +43,17 @@ networks:
             config:
             - subnet: 172.16.240.0/24
               gateway: 172.16.240.1
-    zpw_api_net:
+    zpw_deployd_net:
         driver: bridge
         ipam:
             driver: default
             config:
             - subnet: 172.16.241.0/24
               gateway: 172.16.241.1
+    zpw_api_net:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+            - subnet: 172.16.242.0/24
+              gateway: 172.16.242.1
