@@ -1,0 +1,29 @@
+{
+	"type": "Collection",
+	"properties": {
+		"categoryId": {
+			"name": "categoryId",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "categoryId",
+			"order": 0
+		},
+		"name": {
+			"name": "name",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "name",
+			"order": 1
+		},
+		"price": {
+			"name": "price",
+			"type": "number",
+			"typeLabel": "number",
+			"required": true,
+			"id": "price",
+			"order": 2
+		}
+	}
+}

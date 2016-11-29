@@ -1,0 +1,57 @@
+<section class="add-product">
+    <div class="container">
+        <div class="row text-bold mb-20">
+            <div class="col-md-5">
+                Nazwa użytkownika
+            </div>
+            <div class="col-md-5">
+                Kwota zamówienia
+            </div>
+            <div class="col-md-2">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row mb-20" ng-repeat="order in orders">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        {{ order.name }}
+                    </div>
+                    <div class="col-md-5">
+                        {{ order.totalPrice.toFixed(2) }} zł
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-default" ng-click="order.details = true" ng-if="!order.details || order.details == undefined">Pokaż szczegóły</button>
+                        <button class="btn btn-primary" ng-click="order.details = false" ng-if="order.details">Ukryj szczegóły</button>
+                    </div>
+                </div>
+                <div class="row" ng-if="order.details">
+                    <div class="container-fluid">
+                        <div class="row text-bold">
+                            <div class="col-md-4  col-md-offset-1">
+                                Nazwa produktu
+                            </div>
+                            <div class="col-md-4">
+                                Cena
+                            </div>
+                            <div class="col-md-2">
+                                Ilość
+                            </div>
+                        </div>
+                        <div class="row" ng-repeat="product in order.productsSummary">
+                            <div class="col-md-4 col-md-offset-1">
+                                {{ product.name }}
+                            </div>
+                            <div class="col-md-4">
+                                {{ product.price }} zł
+                            </div>
+                            <div class="col-md-2">
+                                {{ product.quantity }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
