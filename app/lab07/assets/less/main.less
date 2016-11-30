@@ -1,0 +1,57 @@
+@import '../../global/less/helpers.less';
+
+body {
+    width: 100%;
+    min-height: 900px;
+    background: rgb(236, 229, 221);
+}
+
+header {
+    padding: 12.5px 0;
+    background: rgb(53, 68, 88);
+    color: #FFF;
+    height: 75px;
+    margin-bottom: 2em;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2em;
+    a {
+        color: #FFF;
+        &:hover {
+            color: #FFF;
+            text-decoration: none;
+        }
+    }
+}
+
+main {
+    width: 70%;
+    margin: 0 auto;
+}
+
+section.task-switch {
+    .row.header {
+        &> div {
+            font-weight: bold;
+            font-size: 2em;
+        }
+    }
+
+    .row.options {
+        margin-top: 2em;
+        &> a div {
+            line-height: 3em;
+            font-size: 1.5em;
+            min-height: 3em;
+            div {
+                transition: .5s;
+                background-color: rgba(177, 169, 169, .25);
+            }
+            &:hover {
+                div {
+                    background-color: rgba(177, 169, 169, .75);
+                }
+            }
+        }
+    }
+}
