@@ -35,6 +35,16 @@ services:
             - "172.16.241.1:27017:27017"
         volumes:
             - ./mongodb:/data/db
+    nodejs-api:
+        container_name: nodejs-api
+        image: mfrankiewicz/nodejs-api
+        networks:
+            zpw_api_net:
+                ipv4_address: 172.16.242.30
+        ports:
+            - "172.16.242.1:80:8080"
+        volumes:
+            - ./nodejs-api:/usr/src/app
 networks:
     zpw_web_net:
         driver: bridge
