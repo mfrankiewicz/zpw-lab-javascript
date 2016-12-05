@@ -129,7 +129,7 @@ appControllers.controller('addProductCtrl', function($scope, $http, productServi
 
     $scope.getProducts();
 
-    $http.get('http://deployd.zpw.loc/product-categories/').then(
+    $http.get('http://api.zpw.loc/product-categories/').then(
         function(response) {
             $scope.categories = [{id:0, name: 'wybierz'}].concat(response.data);
             $scope.selectedCategory = $scope.categories[0];

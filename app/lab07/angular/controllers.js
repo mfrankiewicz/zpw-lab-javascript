@@ -6,7 +6,7 @@ appControllers.controller('mainCtrl', function($scope, $http) {
 
 appControllers.controller('shopCtrl', function($scope, $filter, $http, cartService) {
 
-    $http.get('http://deployd.zpw.loc/products/').then(
+    $http.get('http://api.zpw.loc/products/').then(
         function(response) {
             $scope.products = response.data;
         },
@@ -15,7 +15,7 @@ appControllers.controller('shopCtrl', function($scope, $filter, $http, cartServi
         }
     );
 
-    $http.get('http://deployd.zpw.loc/product-categories/').then(
+    $http.get('http://api.zpw.loc/product-categories/').then(
         function(response) {
             $scope.categories = [{id:0, name: 'wybierz'}].concat(response.data);
             $scope.selectedCategory = $scope.categories[0];
@@ -114,7 +114,7 @@ appControllers.controller('orderCtrl', function($scope, $http, cartService) {
             order.products.push(cartItem.productId);
         });
 
-        $http.post('http://deployd.zpw.loc/orders/', order).then(
+        $http.post('http://api.zpw.loc/orders/', order).then(
 
             function(response) {
                 $scope.products = response.data;
