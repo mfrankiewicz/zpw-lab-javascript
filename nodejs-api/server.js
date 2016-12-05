@@ -2,29 +2,24 @@
 
 // constants
 const express = require('express');
-var bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const app = express();
 
 app.use(function (req, res, next) {
-
-    // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', 'http://lab07.zpw.loc');
-
-    // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-    // Request headers you wish to allow
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
     res.setHeader('Access-Control-Allow-Credentials', true);
 
-    // Pass to next layer of middleware
     next();
 });
+
+
 app.use(bodyParser.json())
+app.use(cookieParser());
+
 
 mongoose.connect('mongodb://172.16.241.1:27017/api');
 
@@ -57,9 +52,43 @@ var Orders = new Schema({
 mongoose.model('orders', Orders);
 var OrderModel = mongoose.model('orders');
 
+var Users = new Schema({
+    username: String,
+    password: String
+});
+
+mongoose.model('users', Users);
+var UserModel = mongoose.model('users');
+
+var Sessions = new Schema({
+    uid: String
+});
+
+mongoose.model('sessions', Sessions);
+var SessionModel = mongoose.model('sessions');
+
+app.use(function (req, res, next) {
+    var sessionId = req.cookies.session;
+
+    SessionModel.findOne({ _id: sessionId}, function (err, session){
+
+        if (session) {
+            UserModel.findOne({ _id: session.uid.toString()}, function (err, user){
+                if (user) {
+                    req.username = user.username;
+                    next();
+                } else {
+                    next();
+                }
+            });
+        } else {
+            next();
+        }
+    });
+})
 
 app.get('/', function (req, res) {
-    return res.end("api.zpw.loc");
+    return res.end('api.zpw.loc');
 });
 
 /**
@@ -83,6 +112,10 @@ app.get('/products', function (req, res) {
 })
 
 app.post('/products', function (req, res) {
+    if (req.username != 'admin') {
+        return res.end();
+    }
+
     var product = new ProductModel();
 
     var newProduct = req.body;
@@ -102,6 +135,10 @@ app.post('/products', function (req, res) {
 
 })
 app.put('/products/:productId', function (req, res) {
+    if (req.username != 'admin') {
+        return res.end();
+    }
+
     var productId = req.params.productId;
 
     ProductModel.findOneAndUpdate({ _id: productId }, req.body, {upsert:true}, function(err, doc){
@@ -110,6 +147,10 @@ app.put('/products/:productId', function (req, res) {
 
 })
 app.delete('/products/:productId', function (req, res) {
+    if (req.username != 'admin') {
+        return res.end();
+    }
+
     var productId = req.params.productId;
     ProductModel.find({ _id:productId }).remove().exec();
     return res.end();
@@ -137,6 +178,10 @@ app.get('/product-categories', function (req, res) {
  * /orders
  */
 app.get('/orders', function (req, res) {
+    if (req.username != 'admin') {
+        return res.end();
+    }
+
     OrderModel.find().lean().exec(function (err, orders) {
         var result = [];
 
@@ -176,8 +221,19 @@ app.post('/orders', function (req, res) {
  * /users
  */
 app.post('/users/login', function (req, res) {
-
-
+    var user = req.body;
+    UserModel.findOne({ username: user.username, password: user.password}, function (err, user){
+        if (user == null) {
+            return res.status(401).end(JSON.stringify({"message":"bad credentials","status":401}));
+        } else {
+            var session = new SessionModel();
+            session.uid = user._id;
+            session.save(function(err, session) {
+                res.cookie('session', session._id.toString());
+                return res.end();
+            });
+        }
+    });
 })
 
 app.listen(8080);

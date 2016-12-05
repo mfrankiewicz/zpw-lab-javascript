@@ -7,7 +7,7 @@ appControllers.controller('mainCtrl', function($scope) {
 appControllers.controller("loginCtrl", function($scope, $http, $location) {
     $scope.authenticate = function () {
         if ($scope.user != undefined) {
-            $http.post('http://deployd.zpw.loc/users/login', {
+            $http.post('http://api.zpw.loc/users/login', {
                 username: $scope.user.name,
                 password: $scope.user.password
                 },{
