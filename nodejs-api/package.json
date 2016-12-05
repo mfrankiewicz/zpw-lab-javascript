@@ -1,0 +1,13 @@
+{
+    "name": "nodejs_api",
+    "version": "1.0.0",
+    "description": "Obraz wykorzystany do realizacji laboratorium nr 7",
+    "author": "Michał Frankiewicz <michal@frankiewicz.me>",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "express": "^4.13.3"
+    }
+}

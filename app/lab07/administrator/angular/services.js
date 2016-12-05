@@ -3,7 +3,7 @@ var appServices = angular.module('appServices', []);
 appServices.factory('orderService', function($http) {
     return {
         getOrders: function() {
-            return $http.get('http://deployd.zpw.loc/orders/');
+            return $http.get('http://api.zpw.loc/orders/');
         },
         data : []
     };
@@ -12,16 +12,16 @@ appServices.factory('orderService', function($http) {
 appServices.factory('productService', function($http) {
     return {
         getProducts: function() {
-            return $http.get('http://deployd.zpw.loc/products/');
+            return $http.get('http://api.zpw.loc/products/');
         },
         addProduct: function(product) {
-            return $http.post('http://deployd.zpw.loc/products/', product);
+            return $http.post('http://api.zpw.loc/products/', product);
         },
         editProduct: function(productId, product) {
-            return $http.put('http://deployd.zpw.loc/products/' + productId, product);
+            return $http.put('http://api.zpw.loc/products/' + productId, product);
         },
         removeProduct: function(productId) {
-            return $http.delete('http://deployd.zpw.loc/products/' + productId);
+            return $http.delete('http://api.zpw.loc/products/' + productId);
         },
         data : []
     };

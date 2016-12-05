@@ -7,7 +7,7 @@ appControllers.controller('mainCtrl', function($scope) {
 appControllers.controller("loginCtrl", function($scope, $http, $location) {
     $scope.authenticate = function () {
         if ($scope.user != undefined) {
-            $http.post('http://deployd.zpw.loc/users/login', {
+            $http.post('http://api.zpw.loc/users/login', {
                 username: $scope.user.name,
                 password: $scope.user.password
                 },{
@@ -129,7 +129,7 @@ appControllers.controller('addProductCtrl', function($scope, $http, productServi
 
     $scope.getProducts();
 
-    $http.get('http://deployd.zpw.loc/product-categories/').then(
+    $http.get('http://api.zpw.loc/product-categories/').then(
         function(response) {
             $scope.categories = [{id:0, name: 'wybierz'}].concat(response.data);
             $scope.selectedCategory = $scope.categories[0];

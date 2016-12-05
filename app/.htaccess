@@ -6,7 +6,11 @@ RewriteBase /
 RewriteCond %{HTTP_HOST} ^www\.(.*)\.loc$
 RewriteRule ^(.*)$ http://%1.loc/$1 [L]
 
+RewriteCond %{REQUEST_URI} ^/lab[0-9]+/administrator$
+RewriteRule ^(.*)$ http://zpw.loc/redirect.php?target=$1 [L]
+
 RewriteCond %{REQUEST_URI} !^/global
+RewriteCond %{REQUEST_URI} !^/redirect.php
 RewriteCond %{HTTP_HOST} ^zpw\.loc
 RewriteCond $1 !^main
 RewriteRule ^(.*)$ /main/$1 [L]

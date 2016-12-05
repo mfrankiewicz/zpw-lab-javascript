@@ -17,6 +17,10 @@ appControllers.controller('mainCtrl', function($scope, $http) {
         {
             description: 'Laboratorium nr 6',
             url: 'http://lab06.zpw.loc/'
+        },
+        {
+            description: 'Laboratorium nr 7',
+            url: 'http://lab07.zpw.loc/'
         }
     ]
 });
