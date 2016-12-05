@@ -6,6 +6,8 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const app = express();
+const server = app.listen(8080);
+const io = require('socket.io' )(server);
 
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', 'http://lab07.zpw.loc');
@@ -125,14 +127,9 @@ app.post('/products', function (req, res) {
     product.price = newProduct.price;
 
     product.save(function(err) {
-        if (err) {
-            throw err;
-        }
-        console.log('Zadanie został o zapisane.');
+        io.sockets.send('Dodano nowy produkt do bazy!');
+        return res.end();
     });
-
-    return res.end();
-
 })
 app.put('/products/:productId', function (req, res) {
     if (req.username != 'admin') {
@@ -142,6 +139,7 @@ app.put('/products/:productId', function (req, res) {
     var productId = req.params.productId;
 
     ProductModel.findOneAndUpdate({ _id: productId }, req.body, {upsert:true}, function(err, doc){
+        io.sockets.send('Baza produktów została zaktualizowana!');
         return res.end();
     });
 
@@ -235,5 +233,3 @@ app.post('/users/login', function (req, res) {
         }
     });
 })
-
-app.listen(8080);

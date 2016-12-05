@@ -10,11 +10,13 @@
 
         <script type="text/javascript" src="/global/js/less.js"></script>
         <script src="/global/js/jquery.min.js"></script>
+        <script src="/global/js/bootstrap.min.js"></script>
         <script src="/global/js/angular.min.js"></script>
         <script src="/global/js/angular-locale_pl-pl.js"></script>
         <script src="/global/js/angular-route.min.js"></script>
         <script src="/global/js/angular-resource.min.js"></script>
         <script src="/global/js/angular-animate.min.js"></script>
+        <script src="http://api.zpw.loc/socket.io/socket.io.js"></script>
 
         <script src="/angular/controllers.js"></script>
         <script src="/angular/services.js"></script>
@@ -49,6 +51,22 @@
                 </div>
             </div
         </footer>
+        <div class="modal fade" id="notificationModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="modalLabel">Powiadomienie</h4>
+                    </div>
+                    <div class="modal-body">
+                    {{ notification }}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script src="/angular/app.js"></script>
     </body>
 </html>

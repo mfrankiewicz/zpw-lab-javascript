@@ -1,7 +1,12 @@
 var appControllers = angular.module('appControllers',[]);
 
-appControllers.controller('mainCtrl', function($scope, $http) {
+appControllers.controller('mainCtrl', function($scope, socket) {
     $scope.assetsVersion = Math.random();
+
+    socket.on('message', function (notification) {
+        $scope.notification = notification;
+        $("#notificationModal").modal('show');
+    });
 });
 
 appControllers.controller('shopCtrl', function($scope, $filter, $http, cartService) {
