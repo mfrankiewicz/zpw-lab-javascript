@@ -28,6 +28,13 @@
         <main>
             <div class="container">
                 <div class="row">
+                    <div class="col-md-12">
+                        <a target="_blank" href="https://github.com/mfrankiewicz/zpw-lab">
+                            <img class="img-responsive pull-auto github" src="/global/img/GitHub_Logo.png" />
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
                     <div ng-repeat="laboratory in laboratories" class="col-md-12 text-center">
                         <h3><a ng-href="{{ laboratory.url }}">{{ laboratory.description }}</a></h3>
                     </div>
