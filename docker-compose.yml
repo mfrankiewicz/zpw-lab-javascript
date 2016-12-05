@@ -41,6 +41,8 @@ services:
         networks:
             zpw_api_net:
                 ipv4_address: 172.16.242.30
+        links:
+            - mongodb
         ports:
             - "172.16.242.1:80:8080"
         volumes:
