@@ -41,13 +41,15 @@ appControllers.controller('orderListCtrl', function($scope, orderService, produc
                         angular.forEach($scope.products, function(product, key) {
                             if (product.id == productId) {
                                 order.totalPrice += product.price;
-                                order.productsSummaryTemp[productId] = product;
-
-                                if (order.productsSummaryTemp[productId].quantity == undefined) {
-                                    order.productsSummaryTemp[productId].quantity = 0;
+                                if (order.productsSummaryTemp[productId] == undefined) {
+                                    order.productsSummaryTemp[productId] = {
+                                        name: product.name,
+                                        price: product.price,
+                                        quantity: 1
+                                    };
+                                } else {
+                                    order.productsSummaryTemp[productId].quantity++;
                                 }
-
-                                order.productsSummaryTemp[productId].quantity++;
                             }
 
                         });
