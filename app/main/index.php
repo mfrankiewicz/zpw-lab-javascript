@@ -29,7 +29,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <a target="_blank" href="https://github.com/mfrankiewicz/zpw-lab">
+                        <a target="_blank" href="https://github.com/mfrankiewicz/zpw-lab-javascript">
                             <img class="img-responsive pull-auto github" src="/global/img/GitHub_Logo.png" />
                         </a>
                     </div>
